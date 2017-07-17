@@ -1,4 +1,30 @@
 
+
+
+function applyChanges() {
+	
+	var colorInputElement = document.getElementById("colorInput");
+	
+	var optionsElement = document.getElementById("headerSelection");
+	
+	alert(optionsElement);
+	var options = optionsElement.options;
+	
+	alert(options.length);
+	for(var i = 0; i<options.length; i++) {
+		alert(options[i]);
+	}
+	
+}
+
+
+
+
+
+
+
+
+
 function Person (name, age) {
 	
 	this.name = name;
@@ -8,12 +34,15 @@ function Person (name, age) {
 };
 
 // Some basic DOM manipulation
+/*
 window.onload = function () {
 	
 	var mainTitles = document.getElementsByTagName("h1");
 	
+	
 	for(var i = 0; i<mainTitles.length; i++) {
 		mainTitles[i].className += "firstLevelTitle";
+
 	}
 	
 	var secondTitles = document.getElementsByTagName("h2");
@@ -24,18 +53,24 @@ window.onload = function () {
 	
 	
 	
-};
+	
+	
+};*/
+
+// Basic DOM manipulation using the JQuery way
+$(document).ready(function () {
+	
+	$('h1').each(function () { 
+		$(this).addClass("secondLevelTitle");
+	});
+	
+});
+
 
 (function main() {
 
 	name = "mike";
 	name = capitalize(name);
-	
-	function sayHi() {
-		
-		alert("Hi " + name);
-	}
-	
 	
 	var someone = new Person("Frank", 40);
 	
@@ -46,11 +81,11 @@ window.onload = function () {
 		
 		// Check whether the property was added
 		if(someone.addedProperty) {
-			console.log(someone.addedProperty);
+			log(someone.addedProperty);
 		}
 	}
 	catch (e) {
-		console.log(e);
+		log(e);
 	}
 	
 		
@@ -82,4 +117,14 @@ function capitalize(name) {
 function getTheDateToday() {
 	return new Date().toDateString();
 }
+
+
+// A Log function
+function log(obj) {
+	if(console) {
+		console.log(obj);
+	}
+}
+
+
 

@@ -48,6 +48,44 @@
 		
 		</p>
 		
+		<hr><hr>
+		
+		<h3>Manipulating DOM using the following form :</h3>
+		<footer>
+			<form action="#" onsubmit="return applyChanges(this);">
+				 
+				<p id="headerSelection">Set Color:  <script>
+						var options = document.createElement("select");
+						options.name = "headers";
+						for(var i = 1; i<= 6; i++) {
+							var option = document.createElement("option");
+							option.value = "h" + i;
+							option.text = "Header"+i;
+							options.add(option);
+						}
+						document.getElementById("headerSelection").append(options);
+
+						</script>
+				
+				
+				: <input id="colorInput" type="color" />
+					<input type="submit" value="apply" />
+
+				</p>
+				
+		
+			</form>
+			
+		</footer>
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	</body>
 	
 </html>
