@@ -7,6 +7,24 @@ function Person (name, age) {
 
 };
 
+// Some basic DOM manipulation
+window.onload = function () {
+	
+	var mainTitles = document.getElementsByTagName("h1");
+	
+	for(var i = 0; i<mainTitles.length; i++) {
+		mainTitles[i].className += "firstLevelTitle";
+	}
+	
+	var secondTitles = document.getElementsByTagName("h2");
+	
+	for(var i = 0; i<secondTitles.length; i++) {
+		secondTitles[i].className += "secondLevelTitle";
+	}
+	
+	
+	
+};
 
 (function main() {
 
@@ -23,13 +41,19 @@ function Person (name, age) {
 	
 	// Trying to add a property to an object
 	try {
-		addPropertyTo(someone);
-		console.log(someone.addedProperty);
+		
+		addPropertyTo(Object.create(someone));
+		
+		// Check whether the property was added
+		if(someone.addedProperty) {
+			console.log(someone.addedProperty);
+		}
 	}
 	catch (e) {
 		console.log(e);
 	}
 	
+		
 	
 })();
 

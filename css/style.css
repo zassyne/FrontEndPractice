@@ -2,5 +2,16 @@
 
 p {
 	text-align: center;
-	font-size: 1.5em;
+	margin-left: 5%;
+	margin-right: 10%;
+}
+
+.firstLevelTitle {
+	color: blue;
+	text-align: center;
+}
+
+.secondLevelTitle {
+	color: cyan;
+	text-align: center;
 }
