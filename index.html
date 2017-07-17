@@ -24,7 +24,7 @@
 		<script src="js/script.js"></script>
 		
 		<link rel="stylesheet" href="css/style.css" />
-	<head>
+	</head>
 	
 	<script>
 
@@ -58,20 +58,27 @@
 						var options = document.createElement("select");
 						options.id = "selection";
 						options.name = "headers";
+						
 						for(var i = 1; i<= 6; i++) {
 							var option = document.createElement("option");
 							option.value = "h" + i;
 							option.text = "Header"+i;
 							options.add(option);
 						}
+						var additionalOption = document.createElement("option");
+						additionalOption.value = "none";
+						option.text = "Select a header";
+						
+						//options.add(additionalOption);
+						
+						//options.selected = additionalOption;
 						document.getElementById("headerSelection").append(options);
 
 						</script>
-				
-				
-				: <input id="colorInput" type="color" />
+					: <input id="colorInput" type="color" />
 					<input type="submit" value="apply" />
-
+					<br />
+					<input id="paragraphsBox" type="radio" name="element" value="p"> paragraphs<br>
 				</p>
 				
 		

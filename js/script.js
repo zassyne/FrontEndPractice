@@ -4,6 +4,20 @@
 function applyChanges() {
 	
 	var colorInputElement = document.getElementById("colorInput");
+	var paragraphsBoxElement = document.getElementById("paragraphsBox");
+	
+	
+	if(paragraphsBoxElement.checked) {
+		var tags = document.getElementsByTagName("p");
+		
+		alert(tags.length);
+		
+		for(var j = 0; j<tags.length; j++) {
+			tags[j].style.color = colorInputElement.value;
+		}
+	}
+	
+	
 	var selectElement = document.getElementById("selection");
 	var options = selectElement.options;
 	var selectedOption = options[selectElement.selectedIndex];
@@ -17,7 +31,6 @@ function applyChanges() {
 	}
 	
 	return false;
-	
 }
 
 
