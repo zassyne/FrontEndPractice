@@ -69,9 +69,8 @@ window.onload = function () {
 // Basic DOM manipulation using the JQuery way
 $(document).ready(function () {
 	
-	$('h1').each(function () { 
-		//$(this).addClass("secondLevelTitle");
-	});
+	// Simple use of the _.filter method
+	alert(_.filter([1, 3, -4, 4, 10], function (number) { return number % 2 === 0;}));
 	
 });
 
