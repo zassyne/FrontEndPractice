@@ -21,13 +21,6 @@ function applyChanges() {
 }
 
 
-
-
-
-
-
-
-
 function Person (name, age) {
 	
 	this.name = name;
