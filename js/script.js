@@ -4,16 +4,18 @@
 function applyChanges() {
 	
 	var colorInputElement = document.getElementById("colorInput");
+	var selectElement = document.getElementById("selection");
+	var options = selectElement.options;
+	var selectedOption = options[selectElement.selectedIndex];
 	
-	var optionsElement = document.getElementById("headerSelection");
 	
-	alert(optionsElement);
-	var options = optionsElement.options;
 	
-	alert(options.length);
-	for(var i = 0; i<options.length; i++) {
-		alert(options[i]);
+	var tags = document.getElementsByTagName(selectedOption.value);
+		
+	for(var j = 0; j<tags.length; j++) {
+		tags[j].style.color = colorInputElement.value;
 	}
+	
 	
 }
 
@@ -61,7 +63,7 @@ window.onload = function () {
 $(document).ready(function () {
 	
 	$('h1').each(function () { 
-		$(this).addClass("secondLevelTitle");
+		//$(this).addClass("secondLevelTitle");
 	});
 	
 });
