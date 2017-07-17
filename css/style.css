@@ -15,3 +15,12 @@ p {
 	color: cyan;
 	text-align: center;
 }
+
+.question {
+	margin-left: 2.5%;
+}
+
+#header {
+	
+	text-align: center;
+}

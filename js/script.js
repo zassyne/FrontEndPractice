@@ -16,6 +16,7 @@ function applyChanges() {
 		tags[j].style.color = colorInputElement.value;
 	}
 	
+	return false;
 	
 }
 
