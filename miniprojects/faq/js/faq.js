@@ -22,7 +22,7 @@ window.onload = function () {
 	
 
 // Function that implements the show/hide process.
-function showAnswer(question) {
+function toggleAnswer(question) {
 	
 	var display = question.nextElementSibling.style.display;
 	
