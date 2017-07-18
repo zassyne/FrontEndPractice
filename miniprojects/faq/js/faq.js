@@ -14,7 +14,10 @@ window.onload = function () {
 	for(var i = 0; i<questionsElements.length; i++) {
 		
 		questionsElements[i].onclick = function () { 
-			showAnswer(this);
+			toggleAnswer(this);
+		}
+		questionsElements[i].onmouseover = function() {
+			this.style.cursor = "pointer";
 		}
 	}
 	
