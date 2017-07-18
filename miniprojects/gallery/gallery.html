@@ -6,12 +6,17 @@
 		<meta charset="utf-8" />
 		<title>Gallery Page</title>
 		<style>
+		
 			.img {
 				border-radius: 5px;
-				cursor: pointer;
 				transition: 0.5;
 			}
-			
+			header {
+				margin: center;
+			}
+			header h1 {
+				text-align: center;
+			}
 			.modal {
 				display: none; /* Hidden by default */
 				position: fixed; /* Stay in place */
@@ -48,23 +53,26 @@
 				from {transform:scale(0)} 
 				to {transform:scale(1)}
 			}
-			
+			#close {
+				position: absolute;
+				top: 15px;
+				right: 35px;
+				color: #f1f1f1;
+				font-size: 40px;
+				font-weight: bold;
+				transition: 0.3s;
+			}
 			
 		</style>
 	
-	
-	
-	</head>
-	
-	
-	<body>
 		<script>
 		
 			var images = [];
-			var numberOfImages = 6;
+			var numberOfImages = 10;
 			var image;
 			var modal;
 			var modalImage;
+			var close;
 			
 			for(var i = 0; i<numberOfImages; i++) {
 				image = document.createElement("img");
@@ -85,6 +93,7 @@
 				};
 				
 				image.onmouseover = function() {
+					this.style.cursor = "pointer";
 					this.style.opacity = 0.7;
 				}
 				image.onmouseout = function () {
@@ -104,15 +113,34 @@
 				
 				modal = document.getElementById("myModal");
 				modalImage = document.getElementById("imageModal");
+				
+				close = document.getElementById("close");
+				
+				close.onmouseover = function () {
+					this.style.cursor = "pointer";
+				};
+				
+				close.onclick = function () {
+					modal.style.display = "none";
+				}
+				
 			}
 			
 			
 		</script>
+	</head>
+	
+	<body>
+		<header>
+			<h1>A simple Gallery!</h1>
+			<hr>
+		</header>
 		<div id="gallery">
 		
 		</div>
 		
 		<div id="myModal" class="modal">
+			<span id="close">&times;</span>
 			<img class="modal-content" id="imageModal" />
 		</div>
 	</body>
