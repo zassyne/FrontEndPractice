@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+	
+		<meta charset="utf-8" />
+		<title>Gallery Page</title>
+		<style>
+			.img {
+				border-radius: 5px;
+				cursor: pointer;
+				transition: 0.5;
+			}
+			
+		
+		</style>
+	
+	
+	
+	</head>
+	
+	
+	<body>
+		<script>
+			var images = [];
+			var numberOfImages = 6;
+			var image;
+			
+			
+			for(var i = 0; i<numberOfImages; i++) {
+				image = document.createElement("img");
+				image.src = "images/morocco" + (i + 1) + ".jpg";
+				image.style.margin = '4px';
+				image.className += "img";
+				
+				image.onload = function () {
+					var ratio = this.naturalWidth / this.naturalHeight;
+					this.height = 200;
+					this.width = ratio * this.height;
+					images.push(this);
+				}
+				image.onclick = function () {
+					
+				};
+				
+				image.onmouseover = function() {
+					this.style.opacity = 0.7;
+				}
+				image.onmouseout = function () {
+					this.style.opacity = 1;
+				}
+				
+			}
+			
+			
+			
+			window.onload = function () {
+			
+				var gallery = document.getElementById("gallery");
+				
+				for(var i = 0; i<numberOfImages; i++) {
+					gallery.append(images[i]);
+				}
+			}
+			
+			
+			
+			
+			
+		</script>
+		<div id="gallery">
+		
+		</div>
+		
+	</body>
+	
+	
+	
+</html>
