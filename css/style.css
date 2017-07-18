@@ -1,5 +1,9 @@
 
-
+.pullquote {
+	float: right;
+	width: 100px;
+	background-color: yellow;
+}
 p {
 	text-align: center;
 	margin-left: 5%;
