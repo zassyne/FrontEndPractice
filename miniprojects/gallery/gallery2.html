@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Gallery Page</title>
-	
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 		<script>
 		
 			class Gallery {
@@ -12,15 +13,13 @@
 					
 					this.images = [];
 					this.numberOfImages = 10;
-					this.current = 7;
+					this.current = 0;
 										
 					var image;
 					
 					for(var i = 0; i<this.numberOfImages; i++) {
 						image = document.createElement("img");
 						image.src = "images/morocco" + (i + 1) + ".jpg";
-						console.log(image);
-
 						//this.onclick(this.current, image);
 						this.onload(this.images, image);
 					}
@@ -33,7 +32,6 @@
 						this.height = 200;
 						this.width = ratio * this.height;
 						images.push(this);
-						console.log(images);
 					}
 				}
 				
@@ -52,27 +50,82 @@
 				getCurrentImage() {
 					return this.images[this.current];
 				}
+				
+				
+				
+				
 			}
 			
 			var gallery;
 			
 			(function main() {
 			
-				gallery = new Gallery();
+				//var galleryContainer = document.getElementById("galleryContainer");
 
+				
+				let promise = new Promise( (resolve, reject) => {
+					
+					try {
+						gallery = new Gallery();
+						//gallery = null;
+						reject("failed");
+					}
+					catch(e) {
+						reject(e);
+					}	
+				
+				});
+				
+				//console.log(gallery);
+				
+				promise.then((successMessage) => {
+					return createSecondPromise('success');
+					//.catch(
+						//(reason) => {
+							//console.log(reason);
+						//}
+					//);
+				})
+				.then((successMessage) => {
+						console.log(successMessage);
+					})
+				.catch(
+					(reason) => {
+						console.log(reason);
+					}
+				
+				);
+				
 			})();
-		
-			window.onload = function () {
-							
-				var galleryContainer = document.getElementById("galleryContainer");
-				
-				galleryContainer.append(gallery.getCurrentImage());
-				
-				
-		
-
+			
+			function createSecondPromise(){
+				return new Promise( (resolve, reject) => {
+						try {
+							load();
+							resolve("success");
+						}
+						catch(e) {
+							reject(e);
+						}	
+					});
 			}
+			
 		
+			function load() {
+				window.onload = function () {
+					
+					
+					var galleryContainer = document.getElementById("galleryContainer");
+							
+					galleryContainer.append(gallery.getCurrentImage());
+						
+				//}
+				}
+				
+				//throw 10;
+			}
+			
+			
 		
 		
 		</script>
