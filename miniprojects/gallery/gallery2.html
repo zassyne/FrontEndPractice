@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Gallery Page</title>
+	
+		<script>
+		
+			class Gallery {
+				
+				constructor() {
+					
+					this.images = [];
+					this.numberOfImages = 10;
+					this.current = 7;
+										
+					var image;
+					
+					for(var i = 0; i<this.numberOfImages; i++) {
+						image = document.createElement("img");
+						image.src = "images/morocco" + (i + 1) + ".jpg";
+						console.log(image);
+
+						//this.onclick(this.current, image);
+						this.onload(this.images, image);
+					}
+				}
+				
+				onload(images, image) {
+					image.onload = function () {	
+						// Resizing the image and keeping the aspect ratio.
+						var ratio = this.naturalWidth / this.naturalHeight;
+						this.height = 200;
+						this.width = ratio * this.height;
+						images.push(this);
+						console.log(images);
+					}
+				}
+				
+				getImages() {
+					return this.images;
+				}
+				
+				next() {
+					current++;
+				}
+				
+				previous() {
+					current--;
+				}
+				
+				getCurrentImage() {
+					return this.images[this.current];
+				}
+			}
+			
+			var gallery;
+			
+			(function main() {
+			
+				gallery = new Gallery();
+
+			})();
+		
+			window.onload = function () {
+							
+				var galleryContainer = document.getElementById("galleryContainer");
+				
+				galleryContainer.append(gallery.getCurrentImage());
+				
+				
+		
+
+			}
+		
+		
+		
+		</script>
+
+
+	
+	</head>
+	
+	<body>
+	
+		
+		<div id ="galleryContainer">
+		
+		</div>
+	
+	
+	
+	
+	
+	
+	
+	</body>
+
+</html>
