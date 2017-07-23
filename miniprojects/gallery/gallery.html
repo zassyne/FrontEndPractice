@@ -5,11 +5,19 @@
 	
 		<meta charset="utf-8" />
 		<title>Gallery Page</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<style>
 		
 			body {
 				margin: auto;
 				max-width: 80%;
+			}
+			p {
+				font-style: italic;
+				font-weight: bold;
+			}
+			img {
+				width: 100%;
 			}
 			.img {
 				border-radius: 5px;
@@ -66,29 +74,37 @@
 				font-weight: bold;
 				transition: 0.3s;
 			}
-			
+			[class*="col"] {
+				margin-bottom: 20px;
+			}
 		</style>
 	
 		<script>
 		
 			var images = [];
-			var numberOfImages = 10;
+			var numberOfImages = 8;
 			var image;
+			var imageContainer;
+			var imagesContainers = [];
 			var modal;
 			var modalImage;
 			var close;
+
 			
 			for(var i = 0; i<numberOfImages; i++) {
 				image = document.createElement("img");
+				imageContainer = document.createElement("div");
+				imageContainer.className +=  "col-xs-6 col-sm-3";
+				imagesContainers.push(imageContainer);
+
 				image.src = "images/morocco" + (i + 1) + ".jpg";
-				image.style.margin = '4px';
+				//image.style.margin = '4px';
 				image.className += "img";
 				
-				// Resizing the image and keeping the aspect ratio.
 				image.onload = function () {
 					var ratio = this.naturalWidth / this.naturalHeight;
 					this.height = 200;
-					this.width = ratio * this.height;
+					/*this.width  = 200;*/
 					images.push(this);
 				}
 				image.onclick = function () {
@@ -110,11 +126,39 @@
 			window.onload = function () {
 			
 				var gallery = document.getElementById("gallery");
-				
+                var container = document.getElementsByClassName("container")[0];
+                var section   = container.getElementsByClassName("row")[0];
+				var body = document.getElementsByTagName("body");
+
 				for(var i = 0; i<numberOfImages; i++) {
-					gallery.append(images[i]);
+                    imagesContainers[i].append(images[i]);
+                    section.append(imagesContainers[i]);
 				}
-				
+
+
+				var footer = document.createElement("section");
+				var aside  = document.createElement("aside");
+				var paragraph = document.createElement("p");
+				footer.className += "row";
+				aside.className  += "col-sm-4";
+				paragraph.innerHTML = "And this is my favorite one !";
+				paragraph.style.fontSize = "20px";
+				paragraph.style.textAlign = "center";
+				aside.appendChild(paragraph);
+				footer.appendChild(aside);
+
+				var poster = document.createElement("div");
+				poster.className += "col-sm-8";
+				var imagePoster = document.createElement("img");
+				imagePoster.src = "images/morocco9.jpg";
+
+				poster.appendChild(imagePoster);
+
+				footer.appendChild(poster);
+
+				container.append(footer);
+
+
 				modal = document.getElementById("myModal");
 				modalImage = document.getElementById("imageModal");
 				
@@ -143,7 +187,19 @@
 		<div id="gallery">
 		
 		</div>
-		
+
+		<div class="container">
+
+			<section class="row">
+
+
+
+
+
+			</section>
+
+		</div>
+
 		<div id="myModal" class="modal">
 			<span id="close">&times;</span>
 			<img class="modal-content" id="imageModal" />
