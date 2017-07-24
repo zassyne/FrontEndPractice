@@ -18,6 +18,7 @@
 			}
 			img {
 				width: 100%;
+				border-radius: 10px;
 			}
 			.img {
 				border-radius: 5px;
@@ -129,27 +130,32 @@
                 var container = document.getElementsByClassName("container")[0];
                 var section   = container.getElementsByClassName("row")[0];
 				var body = document.getElementsByTagName("body");
+				var footer = document.createElement("section");
+				var aside  = document.createElement("aside");
+				var paragraph = document.createElement("p");
+				var poster = document.createElement("div");
+				var imagePoster = document.createElement("img");
 
+				modal = document.getElementById("myModal");
+				modalImage = document.getElementById("imageModal");
+				close = document.getElementById("close");
+
+				
 				for(var i = 0; i<numberOfImages; i++) {
                     imagesContainers[i].append(images[i]);
                     section.append(imagesContainers[i]);
 				}
 
-
-				var footer = document.createElement("section");
-				var aside  = document.createElement("aside");
-				var paragraph = document.createElement("p");
 				footer.className += "row";
 				aside.className  += "col-sm-4";
 				paragraph.innerHTML = "And this is my favorite one !";
 				paragraph.style.fontSize = "20px";
 				paragraph.style.textAlign = "center";
+				
 				aside.appendChild(paragraph);
 				footer.appendChild(aside);
 
-				var poster = document.createElement("div");
 				poster.className += "col-sm-8";
-				var imagePoster = document.createElement("img");
 				imagePoster.src = "images/morocco9.jpg";
 
 				poster.appendChild(imagePoster);
@@ -158,12 +164,6 @@
 
 				container.append(footer);
 
-
-				modal = document.getElementById("myModal");
-				modalImage = document.getElementById("imageModal");
-				
-				close = document.getElementById("close");
-				
 				close.onmouseover = function () {
 					this.style.cursor = "pointer";
 				};
