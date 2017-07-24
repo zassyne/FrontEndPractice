@@ -90,6 +90,7 @@
 			var modal;
 			var modalImage;
 			var close;
+			var imagePoster;// = document.createElement("img");
 
 			
 			for(var i = 0; i<numberOfImages; i++) {
@@ -109,8 +110,10 @@
 					images.push(this);
 				}
 				image.onclick = function () {
-					modal.style.display = "block";
-					modalImage.src = this.src;
+					/*modal.style.display = "block";
+					modalImage.src = this.src;*/
+					//imagePoster.src= this.src;
+					
 				};
 				
 				image.onmouseover = function() {
@@ -143,6 +146,9 @@
 				
 				for(var i = 0; i<numberOfImages; i++) {
                     imagesContainers[i].append(images[i]);
+					images[i].onclick =  function () {
+						imagePoster.src = this.src;
+					};
                     section.append(imagesContainers[i]);
 				}
 
