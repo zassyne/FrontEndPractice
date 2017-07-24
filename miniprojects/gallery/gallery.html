@@ -158,12 +158,26 @@
 				poster.className += "col-sm-8";
 				imagePoster.src = "images/morocco9.jpg";
 
+				
 				poster.appendChild(imagePoster);
 
 				footer.appendChild(poster);
 
 				container.append(footer);
 
+				
+				imagePoster.onclick = function () {
+					modal.style.display = "block";
+					modalImage.src = this.src;
+				}
+				imagePoster.onmouseover = function () {
+					this.style.cursor = "pointer";
+					this.style.opacity = 0.9;
+				}
+				imagePoster.onmouseout = function () {
+				
+					this.style.opacity = 1;
+				}
 				close.onmouseover = function () {
 					this.style.cursor = "pointer";
 				};
