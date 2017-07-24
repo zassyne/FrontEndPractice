@@ -90,7 +90,7 @@
 			var modal;
 			var modalImage;
 			var close;
-			var imagePoster;// = document.createElement("img");
+			var imagePoster;
 
 			
 			for(var i = 0; i<numberOfImages; i++) {
@@ -100,21 +100,14 @@
 				imagesContainers.push(imageContainer);
 
 				image.src = "images/morocco" + (i + 1) + ".jpg";
-				//image.style.margin = '4px';
 				image.className += "img";
 				
 				image.onload = function () {
 					var ratio = this.naturalWidth / this.naturalHeight;
 					this.height = 200;
-					/*this.width  = 200;*/
 					images.push(this);
 				}
-				image.onclick = function () {
-					/*modal.style.display = "block";
-					modalImage.src = this.src;*/
-					//imagePoster.src= this.src;
-					
-				};
+				
 				
 				image.onmouseover = function() {
 					this.style.cursor = "pointer";
