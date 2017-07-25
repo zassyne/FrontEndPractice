@@ -7,6 +7,8 @@
 		<title>Gallery Page</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+		<script src="gallery/gallery.module.js"></script>
+		<script src="gallery/gallery.component.js"></script>
 		<script src="app.js"></script>
 		<style>
 		
@@ -85,116 +87,7 @@
 			}
 		</style>
 	
-		<script>
-		
-			/*var images = [];
-			var numberOfImages = 8;
-			var image;
-			var imageContainer;
-			var imagesContainers = [];
-			var modal;
-			var modalImage;
-			var close;
-			var imagePoster;
 
-			
-			for(var i = 0; i<numberOfImages; i++) {
-				image = document.createElement("img");
-				imageContainer = document.createElement("div");
-				imageContainer.className +=  "col-xs-6 col-sm-3";
-				imagesContainers.push(imageContainer);
-
-				image.src = "images/morocco" + (i + 1) + ".jpg";
-				image.className += "img";
-				
-				image.onload = function () {
-					var ratio = this.naturalWidth / this.naturalHeight;
-					this.height = 200;
-					images.push(this);
-				}
-				
-				
-				image.onmouseover = function() {
-					this.style.cursor = "pointer";
-					this.style.opacity = 0.7;
-				}
-				image.onmouseout = function () {
-					this.style.opacity = 1;
-				}
-				
-			}
-		
-			
-			window.onload = function () {
-			
-				var gallery = document.getElementById("gallery");
-                var container = document.getElementsByClassName("container")[0];
-                var section   = container.getElementsByClassName("row")[0];
-				var body = document.getElementsByTagName("body");
-				var footer = document.createElement("section");
-				var aside  = document.createElement("aside");
-				var paragraph = document.createElement("p");
-				var poster = document.createElement("div");
-				var imagePoster = document.createElement("img");
-
-				modal = document.getElementById("myModal");
-				modalImage = document.getElementById("imageModal");
-				close = document.getElementById("close");
-
-				
-				for(var i = 0; i<numberOfImages; i++) {
-                    imagesContainers[i].append(images[i]);
-					images[i].onclick =  function () {
-						imagePoster.src = this.src;
-					};
-                    section.append(imagesContainers[i]);
-				}
-
-				footer.className += "row";
-				aside.className  += "col-sm-4";
-				paragraph.innerHTML = "And this is my favorite one !";
-				paragraph.style.fontSize = "20px";
-				paragraph.style.textAlign = "center";
-				
-				aside.appendChild(paragraph);
-				footer.appendChild(aside);
-
-				poster.className += "col-sm-8";
-				imagePoster.src = "images/morocco9.jpg";
-
-				
-				poster.appendChild(imagePoster);
-
-				footer.appendChild(poster);
-
-				container.append(footer);
-
-				
-				imagePoster.onclick = function () {
-					modal.style.display = "block";
-					modalImage.src = this.src;
-				}
-				imagePoster.onmouseover = function () {
-					this.style.cursor = "pointer";
-					this.style.opacity = 0.9;
-				}
-				imagePoster.onmouseout = function () {
-				
-					this.style.opacity = 1;
-				}
-				close.onmouseover = function () {
-					this.style.cursor = "pointer";
-				};
-				
-				close.onclick = function () {
-					modal.style.display = "none";
-				}
-				
-			}
-			
-			*/
-		</script>
-	</head>
 	
 	<body>
 		
@@ -218,6 +111,8 @@
 		</div>
 	</body>
 	
+	<script>
 	
+	</script>
 	
 </html>
