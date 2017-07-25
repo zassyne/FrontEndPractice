@@ -19,9 +19,12 @@
 				font-weight: bold;
 			}
 			img {
+				height: 200px;
 				width: 100%;
 				border-radius: 10px;
+				
 			}
+		
 			.img {
 				border-radius: 5px;
 				transition: 0.5;
@@ -193,10 +196,10 @@
 		</script>
 	</head>
 	
-	<body ng-controller="GalleryController" >
+	<body>
 		
 		<header>
-			<h1>A simple Gallery! {{1 + 1 }}</h1>
+			<h1>A simple Gallery!<h1>
 			<hr>
 		</header>
 		<div id="gallery">
@@ -205,14 +208,7 @@
 
 		<div class="container">
 
-			<section class="row">
-
-				<div class="col-xs-6 col-sm-3" ng-repeat="photo in photos">
-					<img src={{photo.src}} />
-				</div>
-
-
-			</section>
+			<gallery></gallery>
 
 		</div>
 
