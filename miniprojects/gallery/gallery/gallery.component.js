@@ -1,56 +1,37 @@
 
 gallery.component('gallery', {
 	
-	template: '<section class="row">'+
-
-				'<div class="col-sm-3" ng-repeat="photo in $ctrl.photos">'+
-					'<img src={{photo.src}} />'+
-				'</div>'+
-
-
-			'</section>',
+	templateUrl: 'gallery/gallery.template.html',
 			
-	controller: function GalleryController() {
+	controller: ['$http', '$scope', function GalleryController($http, $scope) {
 	
 
-		this.photos = [
-			
-			{
-				src: "images/morocco1.jpg"
-			},
-			
-			{
-				src: "images/morocco2.jpg"
+		var self = this;
 
-			},
-			
-			{
-				src: "images/morocco3.jpg"
+		var request = new XMLHttpRequest();
+		request.open('GET', 'photos.json', true);
+		request.send(null);
+		//parse(this, request, $scope)
 
-			},
-			{
-				src: "images/morocco4.jpg"
-			},
-			
-			{
-				src: "images/morocco5.jpg"
+		$http.get('photos.json').then(function (response) {
+			self.photos = (response.data);
+		});
 
-			},
-			
-			{
-				src: "images/morocco6.jpg"
 
-			},
-			{
-				src: "images/morocco7.jpg"
-			},
-			
-			{
-				src: "images/morocco8.jpg"
+	}]
 
-			}
-			
-		];
-	}
+
 	
 });
+
+function parse(scope, request, $scope) {
+
+	request.onreadystatechange = function () {
+
+		if(request.status === 200 && request.readyState === XMLHttpRequest.DONE) {
+			scope.photos = JSON.parse(request.responseText);
+			$scope.$apply();
+		}
+	};
+
+}
